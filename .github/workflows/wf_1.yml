@@ -28,5 +28,5 @@ jobs:
         echo "github ref name: $GITHUB_REF_NAME"
         echo "github sha: $GITHUB_SHA"
         python --version
-        ./api_call.sh
+        ./api_call.sh $GITHUB_REF_NAME
         
