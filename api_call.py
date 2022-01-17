@@ -1,6 +1,4 @@
-import os
 import requests
-import subprocess
 import sys
 
 URL = "https://api.github.com/repos/barandeeps-sigmoid/actions-demo/pulls?state=closed"
@@ -9,7 +7,6 @@ PARAMS = {"base": sys.argv[1]}
 
 def get_closed_pr_list():
     data = requests.get(url=URL, params=PARAMS)
-    print(data.json())
     return data.json()
 
 
