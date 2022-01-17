@@ -29,4 +29,4 @@ jobs:
         echo "Hello ${{ github.event.inputs.name }}"
         echo "git workspace $GITHUB_WORKSPACE"
         pwd
-        ls -ltr
+        ls -ltr $GITHUB_WORKSPACE
