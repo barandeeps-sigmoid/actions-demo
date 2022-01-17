@@ -22,5 +22,4 @@ jobs:
     - name: Send greeting
       run: |
         echo "Hello ${{ github.event.inputs.name }}"
-        git log
         ls -ltr
