@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
     # Runs a single command using the runners shell
-    - name: Send greeting
-      run: |
-        echo "Hello ${{ github.event.inputs.name }}"
-        echo "git workspace $GITHUB_WORKSPACE"
-        pwd
-        ls -ltr $GITHUB_WORKSPACE
+      - name: Send greeting
+        run: |
+          echo "Hello ${{ github.event.inputs.name }}"
+          echo "git workspace $GITHUB_WORKSPACE"
+          pwd
+          ls -ltr $GITHUB_WORKSPACE
