@@ -1,0 +1,6 @@
+dsfdfsfile2
+
+git diff --name-status 4a74de8a480638008a6a0e6d7c37901065b983d0 e1ec9739972efafc5477fad1f1c2dcdcb0e7a2ca
+
+git diff --name-status e1ec9739972efafc5477fad1f1c2dcdcb0e7a2ca d0a02a3f530bfd96b493b676fe56877c7c392c9b
+git diff --name-status d0a02a3f530bfd96b493b676fe56877c7c392c9b e1ec9739972efafc5477fad1f1c2dcdcb0e7a2ca
