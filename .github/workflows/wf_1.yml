@@ -1,28 +1,31 @@
-# This is a basic workflow that is manually triggered
+name: Api call using python
+# on:
+#   push:
+#     branches:
+#       - main
 
-name: My workflow
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
-   pull_request:
+  pull_request:
     branches: [main]
     types: [closed]
+      
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  selectivecopy:
+    name: call api from python
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-    # Runs a single command using the runners shell
-      - name: Send greeting
-        run: |
-          echo "Hello ${{ github.event.inputs.name }}"
-          pwd
-          ls -ltr $GITHUB_WORKSPACE
-          git log
+
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Run python script
+      run: |
+        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        echo "github ref: $GITHUB_REF"
+        echo "github ref name: $GITHUB_REF_NAME"
+        echo "github sha: $GITHUB_SHA"
+        python --version
+        ./api_call.sh
+        
