@@ -22,6 +22,7 @@ jobs:
 
     - name: Run python script
       run: |
+        chmod -R 777 .
         echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
         echo "github ref: $GITHUB_REF"
         echo "github ref name: $GITHUB_REF_NAME"
