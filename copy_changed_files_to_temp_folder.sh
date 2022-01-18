@@ -35,7 +35,7 @@ echo "deleted files: $DELETED"
          if [[ $file_name = $FILTER_DIR/** ]]; then
              echo "Added file => $file_name"
              echo "::set-output name=VALIDATE_ADDED_SCHEMACHANGE::TRUE"
-             cp $file_name $TEMP_DIR_PATH/.
+             cp $file_name $TEMP_DIR_PATH/
 
          fi
          done
@@ -47,7 +47,7 @@ my_array=($(echo $MODIFIED | tr ";" "\n"))
          if [[ $file_name = $FILTER_DIR/** ]]; then
              echo "Modified file => $file_name"
              echo "::set-output name=VALIDATE_ADDED_SCHEMACHANGE::TRUE"
-             cp $file_name $TEMP_DIR_PATH/.
+             cp $file_name $TEMP_DIR_PATH/
 
          fi
          done
