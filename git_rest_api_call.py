@@ -65,7 +65,7 @@ class RestApiCallToGithub:
 
         matched_cell = self.get_cell_no(closed_pr_list)
         print(f"Value matched at cell {matched_cell}")
-        current_sha = SHA
+        current_sha = self._sha
         previous_sha = closed_pr_list[matched_cell + 1].merge_commit_sha
         print(f"prev sha: {previous_sha}, cur sha: {current_sha}")
 
