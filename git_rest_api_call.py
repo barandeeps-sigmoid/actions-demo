@@ -31,12 +31,12 @@ class RestApiCallToGithub:
         data = requests.get(url=self._url, params=self._params)
         return data.json()
 
-    def get_cell_no(self, pull_requests):
+    def _get_cell_no(self, pull_requests):
 
         cell = -1
         for pr in pull_requests:
             cell = cell + 1
-            if SHA == pr.merge_commit_sha:
+            if self._sha == pr.merge_commit_sha:
                 return cell
 
     def _get_closed_pr_list_json(self, key="closed_at"):
@@ -63,7 +63,7 @@ class RestApiCallToGithub:
     def _perform_task(self):
         closed_pr_list = self._get_closed_pr_list_json()
 
-        matched_cell = self.get_cell_no(closed_pr_list)
+        matched_cell = self._get_cell_no(closed_pr_list)
         print(f"Value matched at cell {matched_cell}")
         current_sha = self._sha
         previous_sha = closed_pr_list[matched_cell + 1].merge_commit_sha
