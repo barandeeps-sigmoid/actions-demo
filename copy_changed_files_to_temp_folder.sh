@@ -52,5 +52,5 @@ my_array=($(echo $MODIFIED | tr ";" "\n"))
          fi
          done
 
-echo "Finally copied files"
+echo "Files copied to tmp location $TEMP_DIR_PATH"
 ls -ltr $TEMP_DIR_PATH
