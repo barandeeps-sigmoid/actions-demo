@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BRANCH_NAME=$1
 TEMP_DIR_PATH=$2
