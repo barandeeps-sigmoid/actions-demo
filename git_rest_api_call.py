@@ -16,7 +16,7 @@ class PullRequest:
     merge_commit_sha: str
 
     def __post_init__(self):
-        self.sort_index = self.closed_at
+        self.sort_index = self.merged_at
 
 
 class RestApiCallToGithub:
