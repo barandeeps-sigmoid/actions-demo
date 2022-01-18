@@ -16,7 +16,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Run python script
+    - name: Run bash and python script
       run: |
         chmod -R 777 .
         echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
