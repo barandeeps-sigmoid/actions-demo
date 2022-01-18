@@ -3,11 +3,13 @@
 BRANCH_NAME=$1
 TEMP_DIR_PATH=$2
 FILTER_DIR=$3
+CURRENT_SHA=$4
 echo "BRANCH_NAME=>$BRANCH_NAME"
 echo "TEMP_DIR_PATH=>$TEMP_DIR_PATH"
 echo "FILTER_DIR=>$FILTER_DIR"
+echo "CURRENT_SHA=>$CURRENT_SHA"
 
-python git_rest_api_call.py $BRANCH_NAME> result.log
+python git_rest_api_call.py $BRANCH_NAME $CURRENT_SHA> result.log
 
 cat result.log
 

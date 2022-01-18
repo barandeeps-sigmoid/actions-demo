@@ -24,5 +24,5 @@ jobs:
         echo "github ref name: $GITHUB_REF_NAME"
         echo "github sha: $GITHUB_SHA"
         python --version
-        ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake
+        ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake $GITHUB_SHA
         
