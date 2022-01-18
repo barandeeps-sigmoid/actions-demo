@@ -1,4 +1,4 @@
-name: Api call using python
+name: Selective copy
 
 on:
   pull_request:
