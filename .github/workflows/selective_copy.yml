@@ -29,5 +29,5 @@ jobs:
         echo "github sha: $GITHUB_SHA"
         echo "pr number: ${{ github.event.number }}"
         python --version
-        ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake ${{ github.event.number }}
+        ./copy_changed_files_to_temp_folder.sh $GITHUB_WORKSPACE/tmp/ snowflake ${{ github.event.number }}
         
