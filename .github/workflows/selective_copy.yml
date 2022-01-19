@@ -30,6 +30,7 @@ jobs:
         echo "pr number: ${{ steps.pr.outputs.pull_request_number }}"
         PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
         echo "pr number: $PR_NUMBER"
+        echo "pr number: ${{ github.event.number }}"
         python --version
         ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake ${{ steps.pr.outputs.pull_request_number }}
         
