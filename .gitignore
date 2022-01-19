@@ -4,3 +4,4 @@ result.log
 .idea/sonarlint/issuestore/index.pb
 test.py
 *.pb
+.DS_Store
