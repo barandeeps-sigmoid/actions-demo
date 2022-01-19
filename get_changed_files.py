@@ -17,19 +17,24 @@ class RestApiCallToGithub:
 
     def _get_changed_files(self):
         changed_files_list = self._get_pr_changed_files()
-        changed_files_filtered = []
-        counter = 0
+        changed_files_matched_filter = []
+        changed_files_skipped_filter = []
+        total_changed_counter = 0
         for item in changed_files_list:
-            print(f"Filename=>{item['filename']}")
-            print(f"Status=>{item['status']}")
-            if item['filename'].startswith(self._folder_filter):
-                changed_files_filtered.append(item['filename'])
-            counter += 1
-            print("==========================")
+            print(f"Filename=>{item['filename']}; Status=>{item['status']}")
+            if item['filename'].startswith(self._folder_filter) and item['status'] in ('added', 'modified'):
+                changed_files_matched_filter.append(item['filename'])
+            else:
+                changed_files_skipped_filter.append(item['filename'])
+            total_changed_counter += 1
 
-        print(f"Total changed files {counter}")
-        print(f"Files matching filter count {len(changed_files_filtered)}")
-        print(f"Files matching filter {';'.join(changed_files_filtered)}")
+        print(f"Total changed files {total_changed_counter}")
+        print("==========================")
+        print(f"Files skipped filter count {len(changed_files_skipped_filter)}")
+        print(f"Files skipped filter {';'.join(changed_files_skipped_filter)}")
+        print("==========================")
+        print(f"Files matching filter count {len(changed_files_matched_filter)}")
+        print(f"Files matching filter {';'.join(changed_files_matched_filter)}")
 
     def _perform_task(self):
         self._get_changed_files()
@@ -39,8 +44,6 @@ class RestApiCallToGithub:
 
 
 if __name__ == "__main__":
-    # pr_number = "14"
-    # folder_filter="snowflake/"
     pr_number = sys.argv[1]
     folder_filter = sys.argv[2]
 
