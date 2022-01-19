@@ -10,9 +10,11 @@ class RestApiCallToGithub:
 
     _url: str
     _folder_filter: str
+    _bearer_token: str
 
     def _get_pr_changed_files(self):
-        data = requests.get(url=self._url)
+        headers = {"Authorization": f"Bearer {self._bearer_token}"}
+        data = requests.get(url=self._url, headers=headers)
         return data.json()
 
     def _get_changed_files(self):
@@ -47,7 +49,7 @@ class RestApiCallToGithub:
 if __name__ == "__main__":
     pr_number = sys.argv[1]
     folder_filter = sys.argv[2]
-
+    bearer_token = sys.argv[3]
     URL = f"https://api.github.com/repos/barandeeps-sigmoid/actions-demo/pulls/{pr_number}/files"
     print(f"Extracting changed files for PR#=>{pr_number}")
     print("==========================")

@@ -3,11 +3,12 @@
 TEMP_DIR_PATH=$1
 FILTER_DIR=$2
 PR_NUMBER=$3
+BEARER_TOKEN=$4
 echo "TEMP_DIR_PATH=>$TEMP_DIR_PATH"
 echo "FILTER_DIR=>$FILTER_DIR"
 echo "PR_NUMBER=>$PR_NUMBER"
-
-python get_changed_files.py $PR_NUMBER snowflake/> result.log
+echo "BEARER_TOKEN=>$BEARER_TOKEN"
+python get_changed_files.py $PR_NUMBER snowflake/ BEARER_TOKEN> result.log
 
 cat result.log
 
