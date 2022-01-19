@@ -27,5 +27,5 @@ jobs:
         echo "github sha: $GITHUB_SHA"
         echo "pr number: ${{ steps.pr.outputs.pull_request_number }}"
         python --version
-        ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake $GITHUB_SHA
+        ./copy_changed_files_to_temp_folder.sh $GITHUB_REF_NAME $GITHUB_WORKSPACE/tmp/ snowflake ${{ steps.pr.outputs.pull_request_number }}
         
