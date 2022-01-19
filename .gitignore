@@ -7,3 +7,4 @@ test.py
 .DS_Store
 test_replace.sh
 result.log
+date_time_precision.sh
