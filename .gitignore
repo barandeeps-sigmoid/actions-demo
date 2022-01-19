@@ -6,3 +6,4 @@ test.py
 *.pb
 .DS_Store
 test_replace.sh
+result.log
