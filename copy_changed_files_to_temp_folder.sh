@@ -14,12 +14,12 @@ python get_changed_files.py $PR_NUMBER snowflake/> result.log
 cat result.log
 
 RESULT=$(tail -1 result.log)
-
+echo "Final changed files detected"
+echo $RESULT
 mkdir -p $TEMP_DIR_PATH
 my_array=($(echo $RESULT | tr ";" "\n"))
 for file_name in "${my_array[@]}";do
-   echo "Added file => $file_name"
-   echo "::set-output name=VALIDATE_ADDED_SCHEMACHANGE::TRUE"
+   echo "::set-output name=VALIDATE_CHANGES_SCHEMACHANGE::TRUE"
    cp $file_name $TEMP_DIR_PATH/
 done
 

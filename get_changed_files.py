@@ -34,7 +34,8 @@ class RestApiCallToGithub:
         print(f"Files skipped filter {';'.join(changed_files_skipped_filter)}")
         print("==========================")
         print(f"Files matching filter count {len(changed_files_matched_filter)}")
-        print(f"Files matching filter {';'.join(changed_files_matched_filter)}")
+        print("Files matching filter ")
+        print(';'.join(changed_files_matched_filter))
 
     def _perform_task(self):
         self._get_changed_files()
