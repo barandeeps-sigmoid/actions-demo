@@ -20,7 +20,9 @@ mkdir -p $TEMP_DIR_PATH
 my_array=($(echo $RESULT | tr ";" "\n"))
 for file_name in "${my_array[@]}";do
    echo "::set-output name=VALIDATE_CHANGES_SCHEMACHANGE::TRUE"
-   cp $file_name $TEMP_DIR_PATH/
+   EPOCH_TIMESTAMP_WITH_MILLIS=".$(date +%s%3)_"
+   EXTRACTED_FILE_NAME= $file_name|sed "s/.*\///"
+   cp $file_name $TEMP_DIR_PATH/${EXTRACTED_FILE_NAME/_/$EPOCH_TIMESTAMP_WITH_MILLIS}
 done
 
 echo "Files copied to tmp location $TEMP_DIR_PATH"
