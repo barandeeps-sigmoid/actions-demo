@@ -53,5 +53,5 @@ if __name__ == "__main__":
     URL = f"https://api.github.com/repos/barandeeps-sigmoid/actions-demo/pulls/{pr_number}/files"
     print(f"Extracting changed files for PR#=>{pr_number}")
     print("==========================")
-    RestApiCallToGithub(_url=URL, _folder_filter=folder_filter) \
+    RestApiCallToGithub(_url=URL, _folder_filter=folder_filter,_bearer_token=bearer_token) \
         .main()
